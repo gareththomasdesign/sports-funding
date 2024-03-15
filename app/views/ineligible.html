@@ -1,0 +1,34 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Content page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        You are ineligible for funding.
+      </h1>
+
+      <p>
+        Unfortunately, this funding can only be claimed to support you or your organisation in events or purchases to be made in the future.
+      </p>
+
+      <p>
+        Read more <a href="https://www.sportengland.org/funds-and-campaigns/our-funds">at Sport England</a>.
+      </p>
+
+    </div>
+  </div>
+
+{% endblock %}

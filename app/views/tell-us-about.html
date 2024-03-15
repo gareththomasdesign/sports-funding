@@ -1,0 +1,63 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="/when-will-funding" method="post">
+
+        {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+        {{ govukRadios({
+          name: "who-is-claiming",
+          value: data['who-is-claiming'],
+          fieldset: {
+            legend: {
+              text: "Who is claiming funding?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          items: [
+            {
+              value: "Myself, on behalf of an organisation",
+              text: "Myself, on behalf of an organisation"
+            },
+            {
+              value: "An organisation",
+              text: "An organisation"
+            },
+            {
+              value: "Myself, on behalf of another individual",
+              text: "Myself, on behalf of another individual"
+            },
+            {
+              value: "Myself, to be used by me",
+              text: "Myself, to be used by me"
+            }
+          ]
+        }) }}
+
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
